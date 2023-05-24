@@ -4,16 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Bohdana/Desktop/FarmaciaRs/src/Vista/JInternalFrame_Clientes.java</file>
-            <file>file:/C:/Users/Bohdana/Desktop/FarmaciaRs/src/Modelo/POJOempleado.java</file>
-            <file>file:/C:/Users/Bohdana/Desktop/FarmaciaRs/src/Modelo/POJOcliente.java</file>
-            <file>file:/C:/Users/Bohdana/Desktop/FarmaciaRs/src/Vista/JInternalFrame_Productos.java</file>
-            <file>file:/C:/Users/Bohdana/Desktop/FarmaciaRs/src/Vista/menu.java</file>
+            <file>file:/C:/Users/Bohdana/Desktop/FarmaciaRs/src/Controlador/Conexion.java</file>
             <file>file:/C:/Users/Bohdana/Desktop/FarmaciaRs/src/Vista/JInternalFrame_empleado.java</file>
-            <file>file:/C:/Users/Bohdana/Desktop/FarmaciaRs/src/Modelo/POJOproveedor.java</file>
-            <file>file:/C:/Users/Bohdana/Desktop/FarmaciaRs/src/Controlador/Database.java</file>
-            <file>file:/C:/Users/Bohdana/Desktop/FarmaciaRs/src/Vista/Login.java</file>
+            <file>file:/C:/Users/Bohdana/Desktop/FarmaciaRs/src/Controlador/DAOCliente.java</file>
             <file>file:/C:/Users/Bohdana/Desktop/FarmaciaRs/src/Vista/JInternalFrame_proveedores.java</file>
-            <file>file:/C:/Users/Bohdana/Desktop/FarmaciaRs/src/Vista/JInternalFrame_venta.java</file>
         </group>
     </open-files>
 </project-private>

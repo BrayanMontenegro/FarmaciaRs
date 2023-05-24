@@ -16,9 +16,7 @@ public class JInternalFrame_Productos extends javax.swing.JInternalFrame {
 
     public JInternalFrame_Productos() {
         initComponents();
-        jPanel1.setBackground(new Color(0, 0, 0, 0));
-        
-        connection = (Connection) Database.Conectar(); 
+        jPanel1.setBackground(new Color(0, 0, 0, 0)); 
     }
 
   

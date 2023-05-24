@@ -4,7 +4,7 @@
  */
 package Vista;
 
-import Controlador.Database;
+import Controlador.*;
 import com.sun.jdi.connect.spi.Connection;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -22,8 +22,6 @@ private Connection connection;
     public JInternalFrame_Clientes() {
         initComponents();
         jPanel1.setBackground(new Color(0, 0, 0, 0));
-        
-        connection = (Connection) Database.Conectar(); 
     }
     
     @SuppressWarnings("unchecked")

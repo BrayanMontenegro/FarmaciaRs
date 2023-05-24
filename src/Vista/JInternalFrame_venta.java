@@ -1,6 +1,6 @@
 package Vista;
 
-import Controlador.Database;
+import Controlador.*;
 import com.sun.jdi.connect.spi.Connection;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -19,7 +19,7 @@ public class JInternalFrame_venta extends javax.swing.JInternalFrame {
         initComponents();
         jPanel1.setBackground(new Color(0, 0, 0, 0));
         
-        connection = (Connection) Database.Conectar(); 
+        
     }
 
    
