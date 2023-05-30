@@ -4,6 +4,7 @@ import Controlador_Conexion_DB.Conexion;
 import Controlador.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.HeadlessException;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
@@ -618,7 +619,27 @@ Clase_Empleado bla = new Clase_Empleado (Nombre_1, Nombre_2, Apellido_1, Apellid
     }//GEN-LAST:event_hora_Salida_TextField
 
     private void guardar_empleado(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardar_empleado
- 
+  CRUD_Empleado gr = new CRUD_Empleado();
+  try{
+      if((jTextNombre1.getText().equals(""))
+              || (jTextNombre2.getText().equals(""))
+              || (jTextApellido1.getText().equals(""))
+              || (jTextApellido2.getText().equals(""))
+              || (jTexTelefono.getText().endsWith(""))
+              || (jTextGmail.getText().equals(""))
+              || (jTextADirecion.getText().equals(""))
+              || (jTexthoraentra.getText().equals(""))
+              || (jTexthorasal.getText().equals(""))){
+          JOptionPane.showMessageDialog(null, "Tiene datos vacíos");
+      } else {
+                    guardarEmple();
+                    limpiar();
+                    JOptionPane.showMessageDialog(null, "Datos Guardados Correctamente");
+                }
+            
+        } catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e);
+        }
     }//GEN-LAST:event_guardar_empleado
 
     private void jPanel5(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel5
