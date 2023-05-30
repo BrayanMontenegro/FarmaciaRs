@@ -5,6 +5,7 @@ import Controlador.*;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.HeadlessException;
+import java.sql.CallableStatement;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
@@ -120,7 +121,7 @@ Clase_Empleado bla = new Clase_Empleado (Nombre_1, Nombre_2, Apellido_1, Apellid
         Buscar = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        Actualizar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jButton5 = new javax.swing.JButton();
@@ -464,13 +465,18 @@ Clase_Empleado bla = new Clase_Empleado (Nombre_1, Nombre_2, Apellido_1, Apellid
         jButton8.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
         jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 150, 100, -1));
 
-        jButton9.setBackground(new java.awt.Color(0, 153, 153));
-        jButton9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas_Iconos/Actualizar uduario.png"))); // NOI18N
-        jButton9.setText("Actualizar");
-        jButton9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 210, 100, -1));
+        Actualizar.setBackground(new java.awt.Color(0, 153, 153));
+        Actualizar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        Actualizar.setForeground(new java.awt.Color(255, 255, 255));
+        Actualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas_Iconos/Actualizar uduario.png"))); // NOI18N
+        Actualizar.setText("Actualizar");
+        Actualizar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        Actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ActualizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 210, 100, -1));
 
         jButton4.setBackground(new java.awt.Color(0, 153, 153));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -692,8 +698,29 @@ panel.setBorder(borde);
 }
     }//GEN-LAST:event_BuscarActionPerformed
 
+    private void ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarActionPerformed
+     int fila = this.jTableEmpleado.getSelectedRow();
+    if (fila == -1) {
+        JOptionPane.showMessageDialog(null, "Seleccione el registro de la tabla");
+    }else {
+        int cod = Integer.parseInt(this.jTableEmpleado.getValueAt(fila, 0).toString());
+        try {
+           CallableStatement cbst = cn.prepareCall("{call EliminarCliente(?)}");
+            cbst.setInt(1, cod);
+            cbst.executeUpdate();
+            
+            DefaultTableModel modelo = (DefaultTableModel) jTableEmpleado.getModel();
+            modelo.removeRow(fila);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+            }
+    
+        }
+    }//GEN-LAST:event_ActualizarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Actualizar;
     private javax.swing.JButton Buscar;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -704,7 +731,6 @@ panel.setBorder(borde);
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
