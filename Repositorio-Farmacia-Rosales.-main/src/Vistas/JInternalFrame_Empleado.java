@@ -92,7 +92,7 @@ Clase_Empleado bla = new Clase_Empleado (Nombre_1, Nombre_2, Apellido_1, Apellid
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
+        jTextBuscar = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -117,7 +117,7 @@ Clase_Empleado bla = new Clase_Empleado (Nombre_1, Nombre_2, Apellido_1, Apellid
         jTexthorasal = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableEmpleado = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
+        Buscar = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
@@ -154,12 +154,12 @@ Clase_Empleado bla = new Clase_Empleado (Nombre_1, Nombre_2, Apellido_1, Apellid
         });
         jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 190, -1));
 
-        jTextField12.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jTextField12.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField12.setText("Buscar");
-        jTextField12.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jTextField12.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jPanel1.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 170, -1));
+        jTextBuscar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTextBuscar.setForeground(new java.awt.Color(153, 153, 153));
+        jTextBuscar.setText("Buscar");
+        jTextBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jTextBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jPanel1.add(jTextBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 170, -1));
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -434,9 +434,14 @@ Clase_Empleado bla = new Clase_Empleado (Nombre_1, Nombre_2, Apellido_1, Apellid
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, 870, 130));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas_Iconos/Buscar.png"))); // NOI18N
-        jButton3.setBorder(null);
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 20, 20));
+        Buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Vistas_Iconos/Buscar.png"))); // NOI18N
+        Buscar.setBorder(null);
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 20, 20));
 
         jButton6.setBackground(new java.awt.Color(0, 153, 153));
         jButton6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -668,13 +673,32 @@ panel.setBorder(borde);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        try {
+         DefaultTableModel modelo;
+        CRUD_Empleado br = new CRUD_Empleado();
+        modelo = br.buscarDatos(jTextBuscar.getText());
+        if (jTextBuscar.getText().equals("Escribe el Id, nombres o apellidos")
+       || jTextBuscar.getText().equals("")) {
+        JOptionPane.showMessageDialog(null, "Escriba el dato a buscar");
+        jTextBuscar.setText("Escribe el Id, nombres o apellidos");
+        jTextBuscar.setForeground(Color.GRAY);
+        mostrar();
+    } else {
+           jTableEmpleado.setModel(modelo);
+        }
+}     catch (Exception e) {
+    JOptionPane.showMessageDialog(null, e);
+}
+    }//GEN-LAST:event_BuscarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Buscar;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -703,7 +727,7 @@ panel.setBorder(borde);
     private javax.swing.JTextArea jTextADirecion;
     private javax.swing.JTextField jTextApellido1;
     private javax.swing.JTextField jTextApellido2;
-    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextBuscar;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextGmail;
     private javax.swing.JTextField jTextNombre1;

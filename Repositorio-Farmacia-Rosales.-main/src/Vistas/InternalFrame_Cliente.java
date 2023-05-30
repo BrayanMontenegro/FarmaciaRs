@@ -119,7 +119,7 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
         jButton12 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
-        jTextField_Buscar = new javax.swing.JTextField();
+        jTextBuscar = new javax.swing.JTextField();
         jTextField_Id_Ciente = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
         jButton_Editar = new javax.swing.JButton();
@@ -421,17 +421,17 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 920, 40));
 
-        jTextField_Buscar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
-        jTextField_Buscar.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField_Buscar.setText("Buscar");
-        jTextField_Buscar.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jTextField_Buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextField_Buscar.addActionListener(new java.awt.event.ActionListener() {
+        jTextBuscar.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jTextBuscar.setForeground(new java.awt.Color(153, 153, 153));
+        jTextBuscar.setText("Buscar");
+        jTextBuscar.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jTextBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField_Buscar(evt);
+                jTextBuscar(evt);
             }
         });
-        jPanel1.add(jTextField_Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 160, -1));
+        jPanel1.add(jTextBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 160, -1));
 
         jTextField_Id_Ciente.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField_Id_Ciente.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -550,12 +550,12 @@ public class InternalFrame_Cliente extends javax.swing.JInternalFrame {
        try {
          DefaultTableModel modelo;
           CRUD_Cliente cli = new CRUD_Cliente();
-    modelo = cli.buscarDatos(jTextField_Buscar.getText());
-    if (jTextField_Buscar.getText().equals("Escribe el Id, nombres o apellidos")
-       || jTextField_Buscar.getText().equals("")) {
+    modelo = cli.buscarDatos(jTextBuscar.getText());
+    if (jTextBuscar.getText().equals("Escribe el Id, nombres o apellidos")
+       || jTextBuscar.getText().equals("")) {
         JOptionPane.showMessageDialog(null, "Escriba el dato a buscar");
-        jTextField_Buscar.setText("Escribe el Id, nombres o apellidos");
-        jTextField_Buscar.setForeground(Color.GRAY);
+        jTextBuscar.setText("Escribe el Id, nombres o apellidos");
+        jTextBuscar.setForeground(Color.GRAY);
         mostrar();
     } else {
         jTable_Cliente.setModel(modelo);
@@ -604,9 +604,9 @@ if (filaSeleccionada == -1) {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jTextField_Buscar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_Buscar
+    private void jTextBuscar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextBuscar
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField_Buscar
+    }//GEN-LAST:event_jTextBuscar
 
     private void JtextFiel_nombre1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JtextFiel_nombre1
         // TODO add your handling code here:
@@ -723,9 +723,9 @@ if (filaSeleccionada == -1) {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable_Cliente;
     private javax.swing.JTextArea jTextArea_Dirrecion;
+    private javax.swing.JTextField jTextBuscar;
     private javax.swing.JTextField jTextFiel_Apellido_1;
     private javax.swing.JTextField jTextField_Apellido_2;
-    private javax.swing.JTextField jTextField_Buscar;
     private javax.swing.JTextField jTextField_Id_Ciente;
     private javax.swing.JTextField jTextField_telefono;
     // End of variables declaration//GEN-END:variables
